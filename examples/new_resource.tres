@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="AttributeTable" load_steps=2 format=3 uid="uid://do3gwucmrk0ax"]
-
-[ext_resource type="Script" path="res://addons/gameplay_ability_system/resources/attribute_table.gd" id="1_u6o38"]
-
-[resource]
-script = ExtResource("1_u6o38")
-attributes = Array[String]([])
