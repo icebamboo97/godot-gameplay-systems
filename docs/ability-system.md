@@ -80,31 +80,31 @@ func activate(event: ActivationEvent) -> void:
 
   # let's check if the character is bound correctly to the [GameplayAttributeMap] node
   if event.character:
-    # creating a new [GameplayEffect] node
-    var effect = GameplayEffect.new()
-    # creating a new [AttributeEffect] resource
-    var health_effect = AttributeEffect.new()
+	# creating a new [GameplayEffect] node
+	var effect = GameplayEffect.new()
+	# creating a new [AttributeEffect] resource
+	var health_effect = AttributeEffect.new()
 
-    # assigning values. Presuming your [GameplayAttributeMap] has an attribute called health.
-    health_effect.attribute_name = "health"
-    # assigning export var (optional, you can even hardcode stuff here)
-    health_effect.minimum_value = health_minimum_restored
-    health_effect.maximum_value = health_maximum_restored
+	# assigning values. Presuming your [GameplayAttributeMap] has an attribute called health.
+	health_effect.attribute_name = "health"
+	# assigning export var (optional, you can even hardcode stuff here)
+	health_effect.minimum_value = health_minimum_restored
+	health_effect.maximum_value = health_maximum_restored
 
-    # adding the affected attribute to the [GameplayEffect]
-    effect.attributes_affected.append(heath_effect)
+	# adding the affected attribute to the [GameplayEffect]
+	effect.attributes_affected.append(heath_effect)
 
-    # adding the effect to the character, so the [GameplayAttributeMap] can do the job for you to update the attribute(s) and do the effect handling.
-    event.character.add_child(effect)
+	# adding the effect to the character, so the [GameplayAttributeMap] can do the job for you to update the attribute(s) and do the effect handling.
+	event.character.add_child(effect)
 
 
 func can_activate(event: ActivationEvent) -> bool:
   var health_attribute = event.get_attribute("health")
 
   if health_attribute:
-    return super.can_activate(event) and health_attribute.current_buffed_value <= 0.0
+	return super.can_activate(event) and health_attribute.current_buffed_value <= 0.0
   else:
-    return super.can_activate(event)
+	return super.can_activate(event)
 ```
 
 Now on your `AbilityContainer` node, click the **add element** button under the abilities parameter, choose `Resurrect` and then we are ready to configure it.
@@ -173,8 +173,8 @@ and then where you handle input events add these lines of code
 ```gdscript
 if Input.is_action_pressed("killme"):
   if not ability_container.has_tag("dead"):
-    ability_container.add_tag("dead")
-    gameplay_attribute_map.get_attribute_by_name("health").current_value = 0.0
+	ability_container.add_tag("dead")
+	gameplay_attribute_map.get_attribute_by_name("health").current_value = 0.0
 
 if Input.is_action_pressed("resurrect"):
   # adds the tag, so if the ability container contains the "dead" tag too, the ability will be activated
@@ -193,10 +193,10 @@ You can of course activate abilities programmatically. Let's make another (short
 ```gdscript
 var resurrect: Ability:
   get:
-    if ability_container == null:
-      return null
+	if ability_container == null:
+	  return null
 
-    return ability_container.find_by(func (x): return x is Resurrect)
+	return ability_container.find_by(func (x): return x is Resurrect)
 ```
 
 ###### Filtering all abilities by a predicate
@@ -204,10 +204,10 @@ var resurrect: Ability:
 ```gdscript
 var dead_tag_abilities: Array[Ability]:
   get:
-    if ability_container == null:
-      return null
-    
-    return ability_container.filter_abilities(func (x): return x.tags_required.has("dead"))
+	if ability_container == null:
+	  return null
+	
+	return ability_container.filter_abilities(func (x): return x.tags_required.has("dead"))
 ```
 
 ###### Activating a single ability
@@ -215,11 +215,11 @@ var dead_tag_abilities: Array[Ability]:
 ```gdscript
 func activate_dead_abilities() -> void:
   for ability in dead_tag_abilities:
-    # note, always check if an ability is granted or not. 
-    # A character like in diablo2 could have dozen of abilities, 
-    # but a player should be able to use them if they are not 
-    # granted by purchasing them using skill points
-    if ability_container.has_ability(ability):
-      ability_container.activate_one(ability)
+	# note, always check if an ability is granted or not. 
+	# A character like in diablo2 could have dozen of abilities, 
+	# but a player should be able to use them if they are not 
+	# granted by purchasing them using skill points
+	if ability_container.has_ability(ability):
+	  ability_container.activate_one(ability)
 ```
 
