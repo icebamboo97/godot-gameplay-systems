@@ -4,7 +4,7 @@ class_name AttributeTable extends Resource
 
 ## Represents a table of attributes
 
-@export_category("Attributes")
+#@export_group("Attributes")
 ## The list of attributes
 @export var attributes : Array[String] = []
 

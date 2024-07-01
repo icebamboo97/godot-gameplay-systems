@@ -14,10 +14,6 @@ config/name="Godot-gameplay-attributes"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-TurnManager="*res://addons/godot_gameplay_systems/turn_based/./autoloads/turn_manager.gd"
-
 [display]
 
 window/stretch/aspect="keep_width"
@@ -33,7 +29,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/gameplay_ability_system/plugin.cfg")
 
 [input]
 

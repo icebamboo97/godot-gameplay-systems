@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AttributeEffect" load_steps=2 format=3 uid="uid://81rgqnlrusq4"]
+
+[ext_resource type="Script" path="res://addons/gameplay_ability_system/resources/attribute_effect.gd" id="1_ldupd"]
+
+[resource]
+script = ExtResource("1_ldupd")
+life_time = 0
+apply_every_second = 1.0
+max_applications = 1
+applies_as = 0
+attribute_name = ""
+minimum_value = 0.0
+maximum_value = 0.0

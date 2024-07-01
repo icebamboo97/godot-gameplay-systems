@@ -15,7 +15,7 @@ enum {
 	LIFETIME_TIME_BASED = 1,
 }
 
-@export_category("Effect life-time")
+@export_group("Effect life-time")
 ## The attribute effect life-time:[br]
 ## LIFETIME_ONE_SHOT [b]0[/b] is equal to a oneshot effect, aka applied once.[br]
 ## LIFETIME_TIME_BASED [b]1[/b] is equal to a time-based effect, applied each [member AttributeEffect.apply_every_second] seconds for a maximum of [member AttributeEffect.max_applications] times
@@ -40,7 +40,7 @@ enum {
 		max_applications = value
 		emit_changed()
 
-@export_category("Attribute modifier")
+@export_group("Attribute modifier")
 @export_enum("Value modification", "Value buff") var applies_as = 0:
 	get:
 		return applies_as
