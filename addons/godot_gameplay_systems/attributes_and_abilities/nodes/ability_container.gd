@@ -42,7 +42,7 @@ signal cooldown_started(ability: Ability)
 signal tags_updated(updated_tags: Array[String], previous_tags: Array[String])
 
 
-@export_category("Abilities")
+##@export_category("Abilities")
 ## It's the path to the [GameplayAttributeMap] which holds all character attributes
 @export_node_path("GameplayAttributeMap") var gameplay_attribute_map_path = NodePath()
 ## It's a preset of [Ability] resources. [Ability] can be also granted at runtime using [method AbilityContainer.grant]

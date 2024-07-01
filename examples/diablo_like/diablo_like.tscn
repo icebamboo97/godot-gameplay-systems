@@ -7,6 +7,7 @@
 vertices = PackedVector2Array(2627, -1367, 2642, 2036, -2112, 1958, -2096, -1382)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2096, -1382, -2112, 1958, 2642, 2036, 2627, -1367)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="diablo_like_skill_tree" type="Node2D"]
 
